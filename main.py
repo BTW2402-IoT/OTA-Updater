@@ -7,22 +7,23 @@
 
 from ota import OTAUpdater
 from WIFI_CONFIG import SSID, PASSWORD
-from machine import Pin
+from machine import Pin, reset
 from time import sleep
 
 #OTA Updater
 firmware_url = "https://github.com/BTW2402-IoT/OTA-Updater"
-ota_updater = OTAUpdater(IoT-BTW2403, IOTFOREVER, firmware_url, "main.py")
-ota_updater.download_and_install_update_if_available()
+ota_updater = OTAUpdater(SSID, PASSWORD, firmware_url, "main.py")
+#ota_updater.download_and_install_update_if_available()
 
 LED = Pin(13, Pin.OUT)
 ShortBreak = 0.5
-LongBreak = 2
-Break = 5
+LongBreak = 1
+Break = 3
 
 #Can't you hear me, S.O.S.
 # --- __ __ __ --- 
 
+print("Start Routine")
 while(True):
     LED.on()            #1
     sleep(LongBreak)
@@ -59,4 +60,6 @@ while(True):
     LED.on()            #9
     sleep(LongBreak)
     LED.off()
+    print("done")
     sleep(Break)
+    reset()
