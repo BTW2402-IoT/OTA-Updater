@@ -23,7 +23,7 @@ Break = 3
 #Can't you hear me, S.O.S.
 # --- __ __ __ --- 
 
-print("Start Routine")
+print("Start Routine Update")
 while(True):
     LED.on()            #1
     sleep(LongBreak)
